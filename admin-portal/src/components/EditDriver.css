@@ -1,0 +1,29 @@
+.edit-driver-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.edit-driver-container h4 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.edit-driver-container .MuiTextField-root {
+    margin-bottom: 15px;
+}
+
+.edit-driver-container .MuiButton-root {
+    margin-top: 20px;
+}
+
+.loading-spinner {
+    display: block;
+    margin: 20px auto;
+}
