@@ -53,6 +53,7 @@ npm run server
 📊 Database Schema
 
  Driver Model
+ 
 🧑‍💼 Name
 🪪 License Number
 🔐 Password
