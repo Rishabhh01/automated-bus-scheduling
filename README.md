@@ -51,25 +51,24 @@ npm run server
 
 
 📊 Database Schema
-
-Driver Model
-Name
-License Number
-Password
-Experience
-Preferred Shift (Morning, Afternoon, Evening)
-Region (North, East, West, South)
-Routes Covered
-Hours Driven
-Availability (Available/Not Available)
-Assignments
+ Driver Model
+🧑‍💼 Name
+🪪 License Number
+🔐 Password
+🛣️ Experience (in years)
+🕒 Preferred Shift (Morning 🌅 / Afternoon 🌇 / Evening 🌃)
+🗺️ Region (North ⬆️ / East ➡️ / West ⬅️ / South ⬇️)
+🛤️ Routes Covered
+⏱️ Hours Driven
+✅❌ Availability (Available ✅ / Not Available ❌)
+📋 Assignments
 
 Bus Model
-Bus Number
-Route
-Shift
-Region
-Route Difficulty
+🔢 Bus Number
+🗺️ Route
+🕒 Shift (Morning 🌅 / Afternoon 🌇 / Evening 🌃)
+🏙️ Region (North ⬆️ / East ➡️ / West ⬅️ / South ⬇️)
+⚙️ Route Difficulty (Easy 🟢 / Moderate 🟡 / Hard 🔴)
 
 ⚙️ Machine Learning Integration (Optional)
 Takes available buses and drivers.
