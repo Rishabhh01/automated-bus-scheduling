@@ -33,22 +33,30 @@ Authentication and authorization for admin and drivers.
 Connected with ML algorithm for auto-scheduling drivers and buses.
 
 🔑 Setup and Installation
-1. Clone the repository
-git clone <repo url>
-2. Navigate to each folder and install dependencies
-*Admin Portal
-cd admin-portal
-npm install
-npm start
-*Driver Dashboard
-cd dashboard-sidebar
-npm install
-npm start
-*Backend
-cd driver-management-backend
-npm install
-npm run server
+Follow these steps to set up and run the project locally:
 
+1. 🚀 Clone the Repository
+git clone <repo-url>
+
+2. 📁 Navigate to the Project Directory
+cd Automated-Bus-Scheduling-System
+
+
+4. 🔧 Install Dependencies & Run Each Module
+✅ Admin Portal (React.js) — For Admin Scheduling and Route Management
+cd admin-portal
+npm install   # Install all dependencies
+npm start     # Start the admin portal on localhost
+
+✅ Driver Dashboard (React.js) — For Driver (Under Development)
+cd dashboard-sidebar
+npm install   # Install all dependencies
+npm start     # Start the driver portal on localhost
+
+✅ Backend (Node.js + Express.js + MongoDB) — API & Database Handling
+cd driver-management-backend
+npm install   # Install all backend dependencies
+npm run server  # Start the backend server (typically on port 5000)
 
 📊 Database Schema
 
