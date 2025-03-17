@@ -51,6 +51,7 @@ npm run server
 
 
 📊 Database Schema
+
  Driver Model
 🧑‍💼 Name
 🪪 License Number
@@ -64,6 +65,7 @@ npm run server
 📋 Assignments
 
 Bus Model
+
 🔢 Bus Number
 🗺️ Route
 🕒 Shift (Morning 🌅 / Afternoon 🌇 / Evening 🌃)
