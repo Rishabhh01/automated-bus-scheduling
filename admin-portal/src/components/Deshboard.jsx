@@ -1,16 +1,8 @@
 import React from 'react';
-import "./Deshboard.css";
-import {
-    FaTh,
-    FaCalendarAlt,
-    FaUserAlt,
-    FaTruck,
-    FaClipboardList,
-    FaSignOutAlt,
-    FaCog,
-    FaBell,
-    FaPlus
-} from "react-icons/fa";
+import './Deshboard.css';
+import { FaTh, FaCalendarAlt, FaUserTie, FaBus, FaChartBar, FaSignOutAlt, FaCog, FaPlusCircle } from 'react-icons/fa';
+import { IoPersonCircleSharp } from 'react-icons/io5'; // New modern admin icon
+import { IoNotificationsSharp } from 'react-icons/io5'; // New modern notification icon
 import { NavLink } from 'react-router-dom';
 import { Tooltip } from 'antd';
 
@@ -18,36 +10,38 @@ const Dashboard = ({ children }) => {
     const menuItem = [
         { path: "/", name: "Dashboard", icon: <FaTh /> },
         { path: "/schedule", name: "Schedule", icon: <FaCalendarAlt /> },
-        { path: "/drivers", name: "Driver", icon: <FaUserAlt /> },
-        { path: "/buses", name: "Vehicles", icon: <FaTruck /> },
-        { path: "/reports", name: "Reports", icon: <FaClipboardList /> }, // Correct path
-        { path: "/settings", name: "Settings", icon: <FaCog /> }, // Correct path
-        { path: "/add", name: "Add Driver", icon: <FaPlus /> },
-        { path: "/bus", name: "Add Bus", icon: <FaPlus /> }
+        { path: "/drivers", name: "Drivers", icon: <FaUserTie /> },
+        { path: "/buses", name: "Vehicles", icon: <FaBus /> },
+        { path: "/reports", name: "Reports", icon: <FaChartBar /> },
+        { path: "/settings", name: "Settings", icon: <FaCog /> },
+        { path: "/add", name: "Add Driver", icon: <FaPlusCircle /> },
+        { path: "/bus", name: "Add Bus", icon: <FaPlusCircle /> }
     ];
 
     return (
         <div className="container">
             <div className="sidebar">
                 <div className="user_section">
-                    <FaUserAlt className="user_icon" />
-                    <h2 className="user_name">Admin</h2>
-                    <FaBell className="notification_icon" />
+                    <IoPersonCircleSharp className="admin_icon" />
+                    <h2 className="user_name">Admin Panel</h2>
+                    <IoNotificationsSharp className="notification_icon" />
                 </div>
-                {menuItem.map((item, index) => (
-                    <Tooltip title={item.name} placement="right" key={index}>
-                        <NavLink
-                            to={item.path}
-                            className={({ isActive }) => (isActive ? "link active" : "link")}
-                            end={item.path === "/"} // Make exact match for Dashboard '/'
-                        >
-                            <div className="icon">{item.icon}</div>
-                            <div className="link_text">{item.name}</div>
-                        </NavLink>
-                    </Tooltip>
-                ))}
+                <div className="menu_section">
+                    {menuItem.map((item, index) => (
+                        <Tooltip title={item.name} placement="right" key={index}>
+                            <NavLink
+                                to={item.path}
+                                className={({ isActive }) => (isActive ? "link active" : "link")}
+                                end={item.path === "/"}
+                            >
+                                <div className="icon">{item.icon}</div>
+                                <div className="link_text">{item.name}</div>
+                            </NavLink>
+                        </Tooltip>
+                    ))}
+                </div>
                 <div className="bottom_section">
-                    <NavLink to="/logout" className="link" activeclassname="active">
+                    <NavLink to="/logout" className="link">
                         <FaSignOutAlt className="logout_icon" />
                         <div className="link_text">Logout</div>
                     </NavLink>

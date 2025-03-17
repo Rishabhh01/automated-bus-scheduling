@@ -1,63 +1,92 @@
+/* Main Container with Glassmorphism */
 .driver-list-container {
-    padding: 24px;
-    border-radius: 18px;
-    max-width: 900px;
-    margin: 40px auto;
-    background: #ffffff;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 1000px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     font-family: 'Inter', sans-serif;
-    transition: all 0.3s ease;
 }
 
-.driver-list-container h4 {
+/* Title */
+.driver-list-title {
     text-align: center;
     color: #222;
-    margin-bottom: 36px;
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    margin-bottom: 40px;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
 }
 
+/* List Item */
 .driver-list-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 0;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    transition: background 0.3s ease;
+    border-radius: 16px;
 }
 
+.driver-list-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Info Section */
 .driver-info {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 18px;
     flex: 1;
 }
 
-.list-item-text {
-    font-size: 17px;
+.driver-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.driver-name {
+    font-size: 20px;
     color: #333;
-    font-weight: 500;
-    letter-spacing: 0.3px;
+    font-weight: 600;
 }
 
-.person-icon {
-    color: #6e8efb;
-    font-size: 24px;
+.driver-license {
+    font-size: 14px;
+    color: #555;
 }
 
+.driver-meta {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Actions */
 .driver-actions {
     display: flex;
     align-items: center;
-    gap: 16px;
-    flex-shrink: 0;
+    gap: 14px;
 }
 
-/* Minimalistic Switch */
+/* Chip */
+.availability-chip {
+    font-weight: 600;
+    border-radius: 16px;
+    padding: 0 8px;
+}
+
+/* Switch */
 .switch {
     position: relative;
     display: inline-block;
-    width: 42px;
-    height: 22px;
+    width: 50px;
+    height: 26px;
 }
 
 .switch input {
@@ -69,64 +98,52 @@
 .slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #e0e0e0;
-    transition: 0.3s;
-    border-radius: 22px;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #ddd;
+    transition: 0.4s;
+    border-radius: 34px;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 16px;
-    width: 16px;
+    height: 20px;
+    width: 20px;
     left: 3px;
     bottom: 3px;
-    background-color: white;
-    transition: 0.3s;
+    background: white;
+    transition: 0.4s;
     border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
 input:checked + .slider {
-    background-color: #6e8efb;
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 input:checked + .slider:before {
-    transform: translateX(20px);
+    transform: translateX(24px);
 }
 
-/* Button Styling */
+/* Edit Button */
 .edit-btn {
-    background-color: #007bff;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
     color: white;
-    padding: 7px 16px;
-    border-radius: 8px;
-    text-transform: none;
+    padding: 8px 18px;
+    border-radius: 12px;
     font-size: 14px;
     font-weight: 500;
     display: flex;
     align-items: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
-.edit-btn:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-}
-
-/* Loading & Alerts */
+/* Spinner & Alerts */
 .loading-spinner {
     display: block;
-    margin: 30px auto;
+    margin: 40px auto;
 }
 
 .alert {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 /* Responsive */
@@ -134,17 +151,11 @@ input:checked + .slider:before {
     .driver-list-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 14px;
-        padding: 16px 0;
+        gap: 16px;
     }
 
     .driver-actions {
         width: 100%;
         justify-content: space-between;
-    }
-
-    .edit-btn {
-        width: 100%;
-        justify-content: center;
     }
 }

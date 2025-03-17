@@ -8,6 +8,7 @@ import DriverForm from './components/DriverForm';
 import BusForm from './components/BusForm';
 import Scheduling from './components/Scheduling';
 import BusList from './components/BusList';
+import DashboardHome from './components/DashboardHome'; // Import the new component
 
 // Dummy components for Reports and Settings
 const Reports = () => <div>Reports Page</div>;
@@ -19,7 +20,7 @@ const App = () => {
             <Deshboard>
                 <div className="App">
                     <Routes>
-                        <Route path="/" element={<div>Dashboard Home</div>} /> {/* Dashboard home */}
+                        <Route path="/" element={<DashboardHome />} /> {/* Dashboard home */}
                         <Route path="/drivers" element={<DriverList />} />
                         <Route path="/add" element={<DriverForm />} />
                         <Route path="/edit/:id" element={<EditDriver />} />

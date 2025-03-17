@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { Container, Typography, TextField, Button, Alert, Box, MenuItem } from '@mui/material';
+import { Container, Typography, TextField, Button, Alert, Box, MenuItem, Paper } from '@mui/material';
 import axios from 'axios';
-import './DriverForm.css';
 
 const DriverForm = () => {
     const [driver, setDriver] = useState({
-        Name: '',
-        License: '',
-        Password: '',
-        Experience: '', // Experience field
-        PreferredShift: '', // Preferred shift field
-        Region: '', // Region field
-        HoursDriven: '', // Hours driven
-       // Availability: true, // Availability field (default to true)
+        name: '',
+        license: '',
+        password: '',
+        experience: '',
+        preferredShift: '',
+        region: '',
+        hoursDriven: '',
+        age: '',
     });
+
     const [error, setError] = useState(null);
 
     const handleChange = (e) => {
@@ -28,83 +28,123 @@ const DriverForm = () => {
         e.preventDefault();
         try {
             await axios.post('http://localhost:5000/drivers', driver);
-            alert('Driver added successfully');
+            alert('Driver added successfully!');
+            // Clear form fields
+            setDriver({
+                name: '',
+                license: '',
+                password: '',
+                experience: '',
+                preferredShift: '',
+                region: '',
+                hoursDriven: '',
+                age: '',
+            });
+            setError(null);
         } catch (error) {
-            setError('Error adding driver');
+            console.error('Error adding driver:', error);
+            setError('Failed to add driver. Please try again.');
         }
     };
 
     return (
-        <Container className="driver-form-container">
-            <Typography variant="h4" gutterBottom>Add Driver</Typography>
-            {error && <Alert severity="error">{error}</Alert>}
-            <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <TextField
-                    label="Name"
-                    name="Name"
-                    value={driver.Name}
-                    onChange={handleChange}
-                    fullWidth
-                />
-                <TextField
-                    label="License"
-                    name="License"
-                    value={driver.License}
-                    onChange={handleChange}
-                    fullWidth
-                />
-                <TextField
-                    label="Password"
-                    name="Password"
-                    type="password"
-                    value={driver.Password}
-                    onChange={handleChange}
-                    fullWidth
-                />
-                <TextField
-                    label="Experience"
-                    name="Experience"
-                    value={driver.Experience}
-                    onChange={handleChange}
-                    fullWidth
-                />
-                <TextField
-                    select
-                    label="Preferred Shift"
-                    name="PreferredShift"
-                    value={driver.PreferredShift}
-                    onChange={handleChange}
-                    fullWidth
-                >
-                    <MenuItem value="Morning">Morning</MenuItem>
-                    <MenuItem value="Afternoon">Afternoon</MenuItem>
-                    <MenuItem value="Evening">Evening</MenuItem>
-                </TextField>
-                <TextField
-                    select
-                    label="Region"
-                    name="Region"
-                    value={driver.Region}
-                    onChange={handleChange}
-                    fullWidth
-                >
-                    <MenuItem value="North">North</MenuItem>
-                    <MenuItem value="East">East</MenuItem>
-                    <MenuItem value="West">West</MenuItem>
-                    <MenuItem value="South">South</MenuItem>
-                </TextField>
-                <TextField
-                    label="Hours Driven"
-                    name="HoursDriven"
-                    value={driver.HoursDriven}
-                    onChange={handleChange}
-                    fullWidth
-                />
-                {/* Add other fields as needed */}
-                <Button type="submit" variant="contained" color="primary">
-                    Add Driver
-                </Button>
-            </Box>
+        <Container maxWidth="sm" sx={{ mt: 4 }}>
+            <Paper elevation={3} sx={{ padding: 4, borderRadius: 3 }}>
+                <Typography variant="h4" align="center" gutterBottom fontWeight="bold">
+                    Add New Driver
+                </Typography>
+                {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
+                <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    <TextField
+                        label="Name"
+                        name="name"
+                        value={driver.name}
+                        onChange={handleChange}
+                        fullWidth
+                        required
+                    />
+                    <TextField
+                        label="License Number"
+                        name="license"
+                        value={driver.license}
+                        onChange={handleChange}
+                        fullWidth
+                        required
+                    />
+                    <TextField
+                        label="Password"
+                        name="password"
+                        type="password"
+                        value={driver.password}
+                        onChange={handleChange}
+                        fullWidth
+                        required
+                    />
+                    <TextField
+                        label="Age"
+                        name="age"
+                        type="number"
+                        value={driver.age}
+                        onChange={handleChange}
+                        fullWidth
+                        required
+                    />
+                    <TextField
+                        label="Experience (Years)"
+                        name="experience"
+                        type="number"
+                        value={driver.experience}
+                        onChange={handleChange}
+                        fullWidth
+                        required
+                    />
+                    <TextField
+                        select
+                        label="Preferred Shift"
+                        name="preferredShift"
+                        value={driver.preferredShift}
+                        onChange={handleChange}
+                        fullWidth
+                        required
+                    >
+                        <MenuItem value="Morning">Morning</MenuItem>
+                        <MenuItem value="Afternoon">Afternoon</MenuItem>
+                        <MenuItem value="Evening">Evening</MenuItem>
+                    </TextField>
+                    <TextField
+                        select
+                        label="Region"
+                        name="region"
+                        value={driver.region}
+                        onChange={handleChange}
+                        fullWidth
+                        required
+                    >
+                        <MenuItem value="North">North</MenuItem>
+                        <MenuItem value="East">East</MenuItem>
+                        <MenuItem value="West">West</MenuItem>
+                        <MenuItem value="South">South</MenuItem>
+                    </TextField>
+                    <TextField
+                        label="Hours Driven"
+                        name="hoursDriven"
+                        type="number"
+                        value={driver.hoursDriven}
+                        onChange={handleChange}
+                        fullWidth
+                        required
+                    />
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        fullWidth
+                        sx={{ mt: 2, padding: 1.2, fontWeight: 'bold', fontSize: '16px', borderRadius: 2 }}
+                    >
+                        Add Driver
+                    </Button>
+                </Box>
+            </Paper>
         </Container>
     );
 };

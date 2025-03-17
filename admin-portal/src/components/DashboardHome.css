@@ -1,0 +1,223 @@
+/* General Styles */ 
+html {
+    scroll-behavior: smooth;
+  }
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #f4f6f9; /* Light background for a clean and professional look */
+  color: #2c3e50;
+  overflow-x: hidden;
+  
+}
+
+.dashboard-home-container {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh; 
+  background: url('../assets/background.png') no-repeat center center/contain; /* Preserving bus background image */
+  background-size: contain;
+  gap: 30px;
+  position: relative;
+ 
+}
+
+/* Adding an overlay to make the text stand out */
+.dashboard-home-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay */
+  z-index: 0;
+}
+
+/* Ensuring the content inside the home container appears above the overlay */
+.dashboard-home-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Welcome Section */
+.welcome-section {
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  animation: slideInDown 1.2s ease-out;
+}
+
+.quote,
+.welcome-subtitle {
+  font-size: 1.2rem;
+  color: #dcdde1;
+  animation: fadeIn 2s ease-in;
+}
+
+.cta-button {
+  margin-top: 20px;
+  padding: 12px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: bounceIn 1.8s ease-out;
+}
+
+.cta-button:hover {
+  background: #f1f1f1;
+  color: #1e3c72;
+  transform: translateY(-3px);
+}
+
+.feature-section {
+    margin-top: 70px; /* Additional space from top, adjust as needed */
+  }
+  
+  .feature-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .feature-icon {
+    font-size: 48px;
+    color: #3b82f6; /* Adjust to theme color */
+    margin-bottom: 12px;
+  }
+  
+  .feature-title {
+    margin: 10px 0 8px;
+    font-weight: bold;
+  }
+  
+  .feature-description {
+    color: #6b7280;
+    font-size: 0.9rem;
+  }
+  
+  .feature-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+
+/* Mapping the Future Section */
+.section-title.mapping-future {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1e3c72;
+  margin: 40px auto 20px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  animation: fadeInUp 1.2s ease;
+}
+
+.image-card {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: zoomIn 1.5s ease-in-out;
+}
+
+.image-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideInDown {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 2rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .feature-section {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-section {
+    padding: 30px 15px;
+  }
+
+  .section-title.mapping-future {
+    font-size: 1.8rem;
+  }
+}

@@ -1,42 +1,149 @@
-/* busform.css */
-
-/* Container styling */
-.container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Overall container with modern gradient and center alignment */
+.bus-form-container {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0e7ff, #f9fafb);
+    min-height: 100vh;
+    gap: 20px;
 }
 
-/* Input fields */
-input[type="text"],
-select {
+/* Form title styling with gradient text effect */
+.form-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Paper with glass effect */
+.bus-form-paper {
+    padding: 40px 30px;
+    border-radius: 24px;
+    max-width: 700px;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-left: 200px;
 }
 
-/* Button */
-button {
-    background-color: #007bff;
+.bus-form-paper:hover {
+    transform: translateY(-5px);
+}
+
+/* Slider label and other text labels */
+.slider-label {
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Text fields */
+.MuiTextField-root {
+    background: rgba(249, 250, 251, 0.9);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.MuiInputBase-root {
+    border-radius: 12px;
+    padding: 5px 8px;
+}
+
+.MuiTextField-root:hover {
+    transform: scale(1.02);
+}
+
+/* Submit Button */
+.submit-btn {
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6);
     color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 16px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.2s ease;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: none;
+    width: 100%;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
 }
 
-button:hover {
-    background-color: #0056b3;
+.submit-btn:hover {
+    background: linear-gradient(90deg, #3b82f6, #1e40af);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6);
+    transform: translateY(-2px);
 }
 
-/* Typography */
-h4 {
-    font-size: 20px;
-    margin-bottom: 16px;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .bus-form-container {
+        padding: 20px 10px;
+    }
+
+    .bus-form-paper {
+        padding: 30px 20px;
+        margin: 0 auto;
+    }
+
+    .form-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-title {
+        font-size: 1.6rem;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+    }
+}
+
+/* Simple entrance animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bus-form-paper {
+    animation: fadeInUp 0.6s ease;
+}
+
+/* Smooth slider and consistent theme */
+.MuiSlider-root {
+    color: #1e40af;
+}
+
+.MuiSlider-thumb {
+    transition: 0.3s;
+}
+
+.MuiSlider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0.1);
 }

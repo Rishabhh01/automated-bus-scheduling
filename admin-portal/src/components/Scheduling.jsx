@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, Spin, notification } from 'antd';
-import { FaBus, FaUser } from 'react-icons/fa';
-import './Scheduling.css'; 
+import { CheckCircleOutlined, ExclamationCircleOutlined, UserOutlined, CarOutlined } from '@ant-design/icons';
+import './Scheduling.css';
 
 const Scheduling = () => {
     const [loading, setLoading] = useState(false);
@@ -18,13 +18,13 @@ const Scheduling = () => {
                 setAssignments(response.data.assignments);
                 setUnassignedDrivers(response.data.unassigned_drivers);
                 setUnassignedBuses(response.data.unassigned_buses);
-                notification.success({ message: 'Scheduling complete!' });
+                notification.success({ message: 'Scheduling complete!', icon: <CheckCircleOutlined /> });
             } else {
-                notification.warning({ message: 'No scheduling data received.' });
+                notification.warning({ message: 'No scheduling data received.', icon: <ExclamationCircleOutlined /> });
             }
         } catch (error) {
             console.error('Error scheduling:', error);
-            notification.error({ message: 'Error scheduling.' });
+            notification.error({ message: 'Error scheduling.', icon: <ExclamationCircleOutlined /> });
         } finally {
             setLoading(false);
         }
@@ -32,72 +32,70 @@ const Scheduling = () => {
 
     return (
         <div className="scheduling-container">
-            <header className="header">
-                <h1>Delhi Transport Corporation</h1>
-                <p>Automated Bus Scheduling and Route Management System</p>
-            </header>
-            <main className="main-content">
-                <h2>Schedule Buses</h2>
-                <Button
-                    type="primary"
-                    onClick={handleSchedule}
-                    loading={loading}
-                    className="schedule-button"
-                >
-                    Schedule
-                </Button>
-                {loading && <Spin style={{ marginTop: '16px' }} />}
-                <section className="assignments-section">
-                    <h3>Assignments</h3>
-                    {assignments.length > 0 ? (
-                        assignments.map((assignment, index) => (
-                            <div key={index} className="assignment-card">
-                                <FaBus className="icon" />
+            <h2>Schedule Buses</h2>
+            <Button
+                type="primary"
+                onClick={handleSchedule}
+                loading={loading}
+                className="schedule-button"
+            >
+                Schedule
+            </Button>
+            {loading && <Spin style={{ marginTop: '16px' }} />}
+            
+            <div className="result-section">
+                <h3>Assignments</h3>
+                {assignments.length > 0 ? (
+                    <ul>
+                        {assignments.map((assignment, index) => (
+                            <li key={index} className="assignment-card">
+                                <UserOutlined className="icon" />
                                 <div className="details">
-                                    <p><span>Driver:</span> {assignment.driver}</p>
-                                    <p><span>Bus:</span> {assignment.bus}</p>
+                                    <p>Driver <strong>{assignment.driver}</strong> assigned to Bus <strong>{assignment.bus}</strong></p>
                                 </div>
-                            </div>
-                        ))
-                    ) : (
-                        <p>No assignments to display.</p>
-                    )}
-                </section>
-                <section className="unassigned-section">
-                    <h3>Unassigned Drivers</h3>
-                    {unassignedDrivers.length > 0 ? (
-                        unassignedDrivers.map((driver, index) => (
-                            <div key={index} className="unassigned-card">
-                                <FaUser className="icon" />
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>No assignments to display.</p>
+                )}
+            </div>
+
+            <div className="result-section">
+                <h3>Unassigned Drivers</h3>
+                {unassignedDrivers.length > 0 ? (
+                    <ul>
+                        {unassignedDrivers.map((driver, index) => (
+                            <li key={index} className="unassigned-card">
+                                <UserOutlined className="icon" />
                                 <div className="details">
                                     <p>{driver}</p>
                                 </div>
-                            </div>
-                        ))
-                    ) : (
-                        <p>All drivers assigned.</p>
-                    )}
-                </section>
-                <section className="unassigned-section">
-                    <h3>Unassigned Buses</h3>
-                    {unassignedBuses.length > 0 ? (
-                        unassignedBuses.map((bus, index) => (
-                            <div key={index} className="unassigned-card">
-                                <FaBus className="icon" />
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>All drivers assigned.</p>
+                )}
+            </div>
+
+            <div className="result-section">
+                <h3>Unassigned Buses</h3>
+                {unassignedBuses.length > 0 ? (
+                    <ul>
+                        {unassignedBuses.map((bus, index) => (
+                            <li key={index} className="unassigned-card">
+                                <CarOutlined className="icon" />
                                 <div className="details">
                                     <p>{bus}</p>
                                 </div>
-                            </div>
-                        ))
-                    ) : (
-                        <p>All buses assigned.</p>
-                    )}
-                </section>
-            </main>
-            <footer className="footer">
-                <p>© 2025 Delhi Transport Corporation. All rights reserved.</p>
-                <p>Contact us at <a href="mailto:support@dtc.gov">support@dtc.gov</a></p>
-            </footer>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>All buses assigned.</p>
+                )}
+            </div>
         </div>
     );
 };

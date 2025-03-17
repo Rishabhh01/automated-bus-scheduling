@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, Spin, notification } from 'antd';
-import './Scheduling.css'; // Make sure to import the CSS file
+import './Scheduling.css';
 
 const Scheduling = () => {
     const [loading, setLoading] = useState(false);
@@ -9,21 +9,25 @@ const Scheduling = () => {
     const [unassignedDrivers, setUnassignedDrivers] = useState([]);
     const [unassignedBuses, setUnassignedBuses] = useState([]);
 
-    // Handle scheduling request
     const handleSchedule = async () => {
         setLoading(true);
         try {
             const response = await axios.post('http://localhost:5000/schedule');
             if (response.data && response.data.assignments) {
+                console.log('Assignments:', response.data.assignments);
+                console.log('Unassigned Drivers:', response.data.unassigned_drivers);
+                console.log('Unassigned Buses:', response.data.unassigned_buses);
                 setAssignments(response.data.assignments);
                 setUnassignedDrivers(response.data.unassigned_drivers);
                 setUnassignedBuses(response.data.unassigned_buses);
                 notification.success({ message: 'Scheduling complete!' });
             } else {
+                console.warn('No scheduling data received.');
                 notification.warning({ message: 'No scheduling data received.' });
             }
         } catch (error) {
             console.error('Error scheduling:', error);
+            console.log('Error details:', error.response ? error.response.data : error.message);
             notification.error({ message: 'Error scheduling.' });
         } finally {
             setLoading(false);
