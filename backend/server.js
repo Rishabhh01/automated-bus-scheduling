@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const { spawn } = require('child_process');
-const Driver = require('./models/driver');
+const Driver = require('./models/Driver');
 const Bus = require('./models/bus');
 
 const app = express();
