@@ -14,7 +14,8 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB Connection
-const MONGO_URI = 'mongodb+srv://rishabhc2234:YY1tuSakOPHjI5Ht@cluster0.l0rqn.mongodb.net/driverManagement';
+require('dotenv').config();
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
