@@ -1,4 +1,5 @@
 🚍 Automated Bus Scheduling
+
 An AI-powered automated bus scheduling system designed to optimize driver assignments and streamline bus scheduling using the MERN stack (MongoDB, Express.js, React.js, Node.js).
 This system improves operational efficiency by automating scheduling and providing a dedicated admin portal for managing drivers, buses, and assignments.
 📁 Project Structur
@@ -9,6 +10,7 @@ This system improves operational efficiency by automating scheduling and providi
 ✨ Features
 
 🛑 Admin Portal (React.js)
+
 ✔ Add, edit, delete drivers and buses
 ✔ Create & manage routes
 ✔ Automated scheduling using Machine Learning (Hungarian Algorithm + Random Forest model)
@@ -16,6 +18,7 @@ This system improves operational efficiency by automating scheduling and providi
 ✔ Interactive UI for efficient scheduling
 
 🗄️ Backend (Node.js, Express.js, MongoDB)
+
 ✔ RESTful APIs to handle CRUD operations
 ✔ MongoDB integration for drivers, buses, routes & schedules
 ✔ Authentication & authorization for admins & drivers
@@ -84,12 +87,14 @@ Why ML + Optimization Is Used:
 
 
 📈 Future Scope
+
 🚀 Development of a Driver Portal for route assignments, availability updates, and schedules.
 📩 SMS/Email notifications for driver assignments
 🛣 Integration of traffic data for route optimization
 🧠 Advanced ML models for better scheduling efficienc
 
 📬 Contact
+
 Developed by: Rishabh Chauhan
 📧 Email: rishabhc2234@gmail.com
 
