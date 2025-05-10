@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const { spawn } = require('child_process');
 const Driver = require('./models/Driver');
-const Bus = require('./models/bus');
+const Bus = require('./models/Bus');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
