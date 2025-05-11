@@ -97,6 +97,8 @@ Why ML + Optimization Is Used:
 
 Developed by: Rishabh Chauhan
 📧 Email: rishabhc2234@gmail.com
+🌐 Live Project: automated-bus-scheduling.vercel.app
+
 
 
 
