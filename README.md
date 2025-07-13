@@ -13,9 +13,9 @@ An AI-powered bus scheduling system built using the **MERN stack** (MongoDB, Exp
 ```
 ---
 
-## ✨ Features
+## Features
 
-### 🛑 Admin Portal (React.js)
+### Admin Portal (React.js)
 - ✔ Add, edit, and delete drivers and buses
 - ✔ Create & manage routes
 - ✔ View optimized schedules
@@ -31,27 +31,27 @@ An AI-powered bus scheduling system built using the **MERN stack** (MongoDB, Exp
 
 ---
 
-## ⚙️ Machine Learning Integration
+##  Machine Learning Integration
 
 The system uses ML + combinatorial optimization to assign drivers to buses effectively:
 
-- 🧠 **Random Forest Classifier**  
+- **Random Forest Classifier**  
   Predicts penalties based on driver fatigue, route difficulty, and shift mismatches.
 
-- 📊 **Cost Matrix Generation**  
+- **Cost Matrix Generation**  
   Dynamically weighted using ML outputs for each driver-bus pair.
 
-- 🔢 **Hungarian Algorithm**  
+- **Hungarian Algorithm**  
   Finds the most optimal (lowest cost) driver-bus assignment.
 
-- 💾 **MongoDB Storage**  
+- **MongoDB Storage**  
   Saves historical scheduling data to retrain and refine the ML model over time.
 
 ---
 
-## 🔑 Setup and Installation
+## Setup and Installation
 
-### 🚀 Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/Rishabhh01/automated-bus-scheduling.git
@@ -73,9 +73,9 @@ npm install
 npm run server  # Runs on http://localhost:5000
 ```
 ---
-## 🧠 Database Models
+##  Database Models
 
-### 👨‍✈️ Driver Schema
+### Driver Schema
 
 - **Name**
 - **License Number**
@@ -97,7 +97,7 @@ npm run server  # Runs on http://localhost:5000
 
 ---
 
-## 🧠 ML + Optimization Pipeline
+## ML + Optimization Pipeline
 
 1. 🔍 **Filter Available Drivers & Buses** from the database.
 2. 📊 **Generate Cost Matrix** using predictions from the trained ML model.
@@ -107,22 +107,22 @@ npm run server  # Runs on http://localhost:5000
 
 ---
 
-## ✅ Why ML + Hungarian?
+##  Why ML + Hungarian?
 
-- 🔍 **Learns from historical data** to improve future predictions.
-- 🧮 **Guarantees optimal assignment** using the Hungarian Algorithm.
-- 🛡️ **Accounts for real-world constraints** like driver fatigue, shift preferences, and route difficulty.
-- 📊 **Continuously improves** with adaptive learning and scheduling data feedback.
+- **Learns from historical data** to improve future predictions.
+- **Guarantees optimal assignment** using the Hungarian Algorithm.
+- **Accounts for real-world constraints** like driver fatigue, shift preferences, and route difficulty.
+- **Continuously improves** with adaptive learning and scheduling data feedback.
 
 ---
 
-## 📈 Future Scope
+## Future Scope
 
-- 🚗 **Driver Portal** for viewing assigned routes and updating availability.
-- 📩 **SMS/Email notifications** for scheduled assignments.
-- 🛣️ **Traffic data integration** to improve route accuracy and efficiency.
-- 🧠 **Advanced ML models** such as XGBoost, LightGBM, or Neural Networks for improved scheduling logic.
-- 📱 **Mobile App for Drivers** for real-time access to routes and schedules.
+- **Driver Portal** for viewing assigned routes and updating availability.
+- **SMS/Email notifications** for scheduled assignments.
+- **Traffic data integration** to improve route accuracy and efficiency.
+- **Advanced ML models** such as XGBoost, LightGBM, or Neural Networks for improved scheduling logic.
+- **Mobile App for Drivers** for real-time access to routes and schedules.
 
 ---
 ## Author
