@@ -16,18 +16,18 @@ An AI-powered bus scheduling system built using the **MERN stack** (MongoDB, Exp
 ## Features
 
 ### Admin Portal (React.js)
-- ✔ Add, edit, and delete drivers and buses
-- ✔ Create & manage routes
-- ✔ View optimized schedules
-- ✔ Automated scheduling via integrated ML engine
-- ✔ Track driver availability and shift preferences
-- ✔ Responsive and interactive UI
+- Add, edit, and delete drivers and buses
+- Create & manage routes
+- View optimized schedules
+- Automated scheduling via integrated ML engine
+- Track driver availability and shift preferences
+- Responsive and interactive UI
 
 ### Backend (Node.js + Express.js + MongoDB)
-- ✔ RESTful API for buses, drivers, routes, schedules
-- ✔ MongoDB integration for data persistence
-- ✔ Authentication & role-based access
-- ✔ ML-powered optimization engine (Python-based)
+- RESTful API for buses, drivers, routes, schedules
+- MongoDB integration for data persistence
+- Authentication & role-based access
+- ML-powered optimization engine (Python-based)
 
 ---
 
