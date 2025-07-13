@@ -1,103 +1,133 @@
-🚍 Automated Bus Scheduling
+## Automated Bus Scheduling System
 
-An AI-powered automated bus scheduling system designed to optimize driver assignments and streamline bus scheduling using the MERN stack (MongoDB, Express.js, React.js, Node.js).
-This system improves operational efficiency by automating scheduling and providing a dedicated admin portal for managing drivers, buses, and assignments.
-📁 Project Structur
-/Automated-Bus-Scheduling-System  
-│ ├── /admin-portal     # Admin Portal - Manage scheduling, routes, and drivers  
-│ ├── /backend          # Backend (Node.js + Express.js + MongoDB)  
+An AI-powered bus scheduling system built using the **MERN stack** (MongoDB, Express.js, React.js, Node.js) designed to optimize driver-bus assignments through intelligent scheduling. The platform includes a modern **Admin Portal** for managing buses, drivers, and routes, and integrates **Machine Learning (Random Forest + Hungarian Algorithm)** for operational efficiency.
 
-✨ Features
+---
 
-🛑 Admin Portal (React.js)
+## 📁 Project Structure
+```
+/Automated-Bus-Scheduling-System
+│
+├── admin-portal/ # React.js frontend for admin (scheduling, routes, driver management)
+├── backend/ # Node.js + Express backend API + MongoDB + ML integration
+```
+---
 
-✔ Add, edit, delete drivers and buses
-✔ Create & manage routes
-✔ Automated scheduling using Machine Learning (Hungarian Algorithm + Random Forest model)
-✔ Monitor driver availability & bus usage
-✔ Interactive UI for efficient scheduling
+## ✨ Features
 
-🗄️ Backend (Node.js, Express.js, MongoDB)
+### 🛑 Admin Portal (React.js)
+- ✔ Add, edit, and delete drivers and buses
+- ✔ Create & manage routes
+- ✔ View optimized schedules
+- ✔ Automated scheduling via integrated ML engine
+- ✔ Track driver availability and shift preferences
+- ✔ Responsive and interactive UI
 
-✔ RESTful APIs to handle CRUD operations
-✔ MongoDB integration for drivers, buses, routes & schedules
-✔ Authentication & authorization for admins & drivers
-✔ Connected with ML-powered auto-scheduling system
+### 🗄️ Backend (Node.js + Express.js + MongoDB)
+- ✔ RESTful API for buses, drivers, routes, schedules
+- ✔ MongoDB integration for data persistence
+- ✔ Authentication & role-based access
+- ✔ ML-powered optimization engine (Python-based)
 
-🔑 Setup and Installation
-Follow these steps to set up and run the project locally:
-🚀 Clone the Repository
+---
+
+## ⚙️ Machine Learning Integration
+
+The system uses ML + combinatorial optimization to assign drivers to buses effectively:
+
+- 🧠 **Random Forest Classifier**  
+  Predicts penalties based on driver fatigue, route difficulty, and shift mismatches.
+
+- 📊 **Cost Matrix Generation**  
+  Dynamically weighted using ML outputs for each driver-bus pair.
+
+- 🔢 **Hungarian Algorithm**  
+  Finds the most optimal (lowest cost) driver-bus assignment.
+
+- 💾 **MongoDB Storage**  
+  Saves historical scheduling data to retrain and refine the ML model over time.
+
+---
+
+## 🔑 Setup and Installation
+
+### 🚀 Clone the Repository
+
+```bash
 git clone https://github.com/Rishabhh01/automated-bus-scheduling.git
-
-📁 Navigate to the Project Directo
 cd automated-bus-scheduling
+```
+---
+## Install & Run Modules
+Admin Portal (React.js)
+```bash
+cd admin-portal
+npm install
+npm start     # Runs on http://localhost:3000
+````
+---
+Backend (Node.js + Express + MongoDB)
+```bash
+cd backend
+npm install
+npm run server  # Runs on http://localhost:5000
+```
+---
+## 🧠 Database Models
 
-🔧 Install Dependencies & Run Each Module
-✅ Admin Portal (React.js) — For Admin Scheduling & Route Management
-cd admin-portal  
-npm install  # Install dependencies  
-npm start    # Start the admin portal on localhost  
+### 👨‍✈️ Driver Schema
 
-✅ Backend (Node.js + Express.js + MongoDB) — API & Database Handling
-cd backend  
-npm install  # Install backend dependencies  
-npm run server  # Start the backend server (typically on port 5000)  
+- **Name**
+- **License Number**
+- **Password** *(securely hashed)*
+- **Experience** *(in years)*
+- **Preferred Shift** *(Morning / Afternoon / Evening)*
+- **Region** *(North / East / West / South)*
+- **Routes Covered**
+- **Hours Driven**
+- **Availability** *(✔ Available / ❌ Not Available)*
 
-📊 Database Schema
+### 🚌 Bus Schema
 
-Driver Model
-🧑‍💼 Name
-🪪 License Number
-🔐 Password (securely hashed)
-🛣️ Experience (in years)
-🕒 Preferred Shift (Morning / Afternoon / Evening)
-🗺️ Region (North / East / West / South)
-🛤️ Routes Covered
-⏱️ Hours Driven
-✅❌ Availability (Available / Not Available)
-📋 Assignments
+- **Bus Number**
+- **Assigned Route**
+- **Shift** *(Morning / Afternoon / Evening)*
+- **Region** *(North / East / West / South)*
+- **Route Difficulty** *(Easy / Moderate / Hard)*
 
-Bus Model
-🔢 Bus Number
-🗺️ Route
-🕒 Shift (Morning / Afternoon / Evening)
-🏙️ Region (North / East / West / South)
-⚙️ Route Difficulty (Easy / Moderate / Hard)
+---
 
-⚙️ Machine Learning Integration
+## 🧠 ML + Optimization Pipeline
 
-This project incorporates Machine Learning-enhanced scheduling with optimization techniques to efficiently assign drivers to buses while maintaining constraints such as shift preferences, fatigue management, experience levels, and route difficulty.
-How It Works:
-✅ Fetches available drivers & buses from MongoDB, filtering only those marked as available.
-✅ Uses Machine Learning (Random Forest model) trained on historical scheduling data to generate a weighted cost matrix, prioritizing efficient driver-bus assignments.
-✅ Constructs a Cost Matrix, dynamically adjusting penalties based on fatigue, shift mismatches, experience gaps, and regional constraints using ML predictions.
-✅ Applies Hungarian Algorithm to determine the mathematically optimal assignments, ensuring balanced and efficient scheduling.
-✅ Outputs optimized scheduling, storing results in MongoDB and reflecting them in the Admin Portal for seamless management.
+1. 🔍 **Filter Available Drivers & Buses** from the database.
+2. 📊 **Generate Cost Matrix** using predictions from the trained ML model.
+3. 🧮 **Apply Hungarian Algorithm** to determine optimal driver-bus assignments.
+4. 💾 **Store Final Assignments** into MongoDB.
+5. 🖥️ **Display Results** in the Admin Portal for review and confirmation.
 
-Technologies Used:
-🧠 Random Forest Classifier → Trained on past scheduling data to refine cost weight calculations, improving selection accuracy.
-📊 Cost Matrix Optimization → Weights are dynamically adjusted using ML-generated predictions rather than static penalties.
-🔢 Hungarian Algorithm (scipy.optimize.linear_sum_assignment) → Performs final optimization, ensuring best possible driver-bus pairing.
-💾 MongoDB Storage → Retains historical schedules to continuously refine future assignment strategies.
+---
 
-Why ML + Optimization Is Used:
-✔ Ensures mathematically optimal assignments → Hungarian Algorithm guarantees best matches for drivers and buses.
-✔ Incorporates adaptive learning → ML refines penalty weights for fatigue, shift mismatches, and difficulty levels over time.
-✔ Balances automation with real-world constraints → Prevents driver fatigue, prioritizes shift preferences, and assigns experienced drivers to complex routes.
+## ✅ Why ML + Hungarian?
 
+- 🔍 **Learns from historical data** to improve future predictions.
+- 🧮 **Guarantees optimal assignment** using the Hungarian Algorithm.
+- 🛡️ **Accounts for real-world constraints** like driver fatigue, shift preferences, and route difficulty.
+- 📊 **Continuously improves** with adaptive learning and scheduling data feedback.
 
-📈 Future Scope
+---
 
-🚀 Development of a Driver Portal for route assignments, availability updates, and schedules.
-📩 SMS/Email notifications for driver assignments
-🛣 Integration of traffic data for route optimization
-🧠 Advanced ML models for better scheduling efficienc
+## 📈 Future Scope
 
-📬 Contact
+- 🚗 **Driver Portal** for viewing assigned routes and updating availability.
+- 📩 **SMS/Email notifications** for scheduled assignments.
+- 🛣️ **Traffic data integration** to improve route accuracy and efficiency.
+- 🧠 **Advanced ML models** such as XGBoost, LightGBM, or Neural Networks for improved scheduling logic.
+- 📱 **Mobile App for Drivers** for real-time access to routes and schedules.
 
-**Developed by**: Rishabh Chauhan  
-📧 **Email**: [rishabhc2234@gmail.com](mailto:rishabhc2234@gmail.com)  
-
+---
+## Author
+**Rishabh Chauhan**  
+Email: rishabhc2234@gmail.com
 
 
 
