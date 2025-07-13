@@ -23,7 +23,7 @@ An AI-powered bus scheduling system built using the **MERN stack** (MongoDB, Exp
 - ✔ Track driver availability and shift preferences
 - ✔ Responsive and interactive UI
 
-### 🗄️ Backend (Node.js + Express.js + MongoDB)
+### Backend (Node.js + Express.js + MongoDB)
 - ✔ RESTful API for buses, drivers, routes, schedules
 - ✔ MongoDB integration for data persistence
 - ✔ Authentication & role-based access
@@ -87,7 +87,7 @@ npm run server  # Runs on http://localhost:5000
 - **Hours Driven**
 - **Availability** *(✔ Available / ❌ Not Available)*
 
-### 🚌 Bus Schema
+### Bus Schema
 
 - **Bus Number**
 - **Assigned Route**
@@ -99,11 +99,11 @@ npm run server  # Runs on http://localhost:5000
 
 ## ML + Optimization Pipeline
 
-1. 🔍 **Filter Available Drivers & Buses** from the database.
-2. 📊 **Generate Cost Matrix** using predictions from the trained ML model.
-3. 🧮 **Apply Hungarian Algorithm** to determine optimal driver-bus assignments.
-4. 💾 **Store Final Assignments** into MongoDB.
-5. 🖥️ **Display Results** in the Admin Portal for review and confirmation.
+1. **Filter Available Drivers & Buses** from the database.
+2. **Generate Cost Matrix** using predictions from the trained ML model.
+3. **Apply Hungarian Algorithm** to determine optimal driver-bus assignments.
+4. **Store Final Assignments** into MongoDB.
+5. **Display Results** in the Admin Portal for review and confirmation.
 
 ---
 
